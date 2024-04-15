@@ -13,4 +13,6 @@ func _process(delta):
 func _on_visibilityNotifier2D_screen_exited():
 	 queue_free()
 	
-			  
+	
+func _on_are_are_entered(area):
+	queue_free()

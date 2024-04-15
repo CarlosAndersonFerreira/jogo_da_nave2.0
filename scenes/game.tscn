@@ -11,6 +11,7 @@ code = "shader_type canvas_item;
 
 uniform float vel = .5f;
 uniform float des = 0f;
+uniform float time = 0f;
 
 void fragment(){
 	COLOR = texture(TEXTURE , UV + (vec2(0 , 1f) * TIME * vel) +vec2(des , 0));
@@ -21,6 +22,7 @@ void fragment(){
 shader = SubResource( 1 )
 shader_param/vel = 0.5
 shader_param/des = 0.0
+shader_param/time = 0.0
 
 [sub_resource type="Animation" id=3]
 length = 0.9
@@ -42,17 +44,21 @@ tracks/0/keys = {
 
 [node name="background" type="Sprite" parent="."]
 material = SubResource( 2 )
-position = Vector2( 1, -1 )
+position = Vector2( -0.310379, -0.0641935 )
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 4 )
+nave = NodePath("../ship")
 
 [node name="ship" type="Node2D" parent="."]
-position = Vector2( 76, 270 )
+modulate = Color( 1, 0.45098, 1, 1 )
+position = Vector2( 74.7397, 269.148 )
+rotation = -0.0137476
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
+vel = 100.0
 
 [node name="ship" type="Sprite" parent="ship"]
 texture = ExtResource( 1 )
@@ -67,4 +73,19 @@ anims/fogo = SubResource( 3 )
 position = Vector2( 0, -47 )
 
 [node name="asteroid" parent="." instance=ExtResource( 5 )]
-position = Vector2( 76, 79 )
+position = Vector2( 38.9364, 97.3316 )
+
+[node name="asteroid2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 37.9668, 36.3833 )
+
+[node name="asteroid3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 122.668, 164.036 )
+
+[node name="asteroid4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 34.5996, 155.617 )
+
+[node name="asteroid5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120.214, 39.0103 )
+
+[node name="asteroid6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 116.334, 105.826 )
